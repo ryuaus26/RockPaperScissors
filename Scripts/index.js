@@ -1,9 +1,10 @@
 function getComputerChoice(){
     index = Math.floor(Math.random() * 3);
     console.log(index);
-    const choices = ["Rock","Paper","Scissor"];
+    let choices = ["Rock","Paper","Scissor"];
     return choices[index];
 }
+
 
 let computerSelection = getComputerChoice();
 let lowerCaseInput;
@@ -32,6 +33,8 @@ function playRound(playerSelection,computerSelection){
     }else if(lowerCaseInput == "scissor" && computerSelection == "Paper"){
         player++;
         winner = "You WIN! " + lowerCaseInput.charAt(0).toUpperCase(0) + lowerCaseInput.slice(1) + " beats " + computerSelection;   
+    }else if(lowerCaseInput == computerSelection.charAt(0).toLowerCase() + computerSelection.slice(1)){
+        winner = "TIE!";
     }
 
      return(winner);
@@ -39,8 +42,7 @@ function playRound(playerSelection,computerSelection){
 
 function game(){
     for(let i = 0 ;i < 5;i++){
-        getComputerChoice();
-        playRound(lowerCaseInput,computerSelection);
+        alert(playRound(lowerCaseInput,getComputerChoice()));
     }
     let winner;
     if(player > computer){
@@ -50,8 +52,8 @@ function game(){
     }else if (computer == player){
         winner = "The match is a tie!";
     }
-    return(winner);
+    return winner;
 }
 
 
-game();
+alert(game());
