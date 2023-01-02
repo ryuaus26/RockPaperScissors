@@ -6,13 +6,15 @@ function getComputerChoice(){
 }
 
 
+
 let computerSelection = getComputerChoice();
 let lowerCaseInput;
 
 
 //score1 is player and score2 is computer
 let score1 = 0;
-let score2 =0;
+let score2 = 0;
+
 
 function playRound(playerSelection,computerSelection){
     let player = 0;
@@ -44,7 +46,7 @@ function playRound(playerSelection,computerSelection){
     }else if(lowerCaseInput == computerSelection.charAt(0).toLowerCase() + computerSelection.slice(1)){
         winner = "TIE!";
     }
-    
+
     score1 = player;
     score2 = computer; 
 
@@ -68,4 +70,4 @@ function game(player,computer){
     return winner;
 }
 
-alert(game(player,computer));
+alert(game(score1,score2));
